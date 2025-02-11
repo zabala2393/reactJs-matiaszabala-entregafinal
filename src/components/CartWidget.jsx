@@ -16,7 +16,7 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
     }
 }))
 export default function CartWidget() {
-    const { getQty } = useContext(CartContext)
+    const {getQty} = useContext(CartContext)    
     return (
         <IconButton aria-label="cart" >
             <StyledBadge badgeContent={getQty()} color="secondary">

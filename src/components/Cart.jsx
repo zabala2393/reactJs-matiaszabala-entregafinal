@@ -5,7 +5,7 @@ import { Link } from 'react-router'
 import { Container } from 'react-bootstrap'
 function Cart() {
 
-    const { cart, getTotal } = useCart()
+    const { cart, getTotal} = useCart()
 
     if (cart.length === 0) {
         return (

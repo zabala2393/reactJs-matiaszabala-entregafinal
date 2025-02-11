@@ -13,7 +13,7 @@ export function ItemCount({ item }) {
 
         if (isInCart) { addToCart({ quantity: count }) } else {
             addToCart({ ...item, quantity: count })
-        }
+        }        
     }
 
     const handleAdd = () => {

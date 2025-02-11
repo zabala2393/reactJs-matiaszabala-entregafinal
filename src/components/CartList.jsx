@@ -9,7 +9,7 @@ function CartList(item) {
         (<ListGroupItem key={item.id}>
             {item.name}x{item.quantity}
             ${item.price}
-            <ItemCount></ItemCount>
+            <ItemCount key={item.id}></ItemCount>
         </ListGroupItem>))}
         </ListGroup>
     )

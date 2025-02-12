@@ -4,10 +4,9 @@ import { useCart } from '../context/CartContext'
 import { Link } from 'react-router'
 import { Container } from 'react-bootstrap'
 function Cart() {
-
     const { cart, getTotal} = useCart()
 
-    if (cart.length === 0) {
+    if (cart.length === 0 || cart == []) {
         return (
             <Container>
                 <h2>No hay productos aun en el carrito</h2>

@@ -1,12 +1,18 @@
-import { CartContext } from "./CartContext";
-import { useState } from "react";
+import { CartContext } from "./CartContext"
+import { useState } from "react"
 
 export default function CartProvider({ children }) {
+    let [cart, setCart] = useState([])
 
-    const [cart, setCart] = useState([])
     const addToCart = item => {
         const isInCart = cart.some(prod => prod.id === item.id)
         if (!isInCart) return setCart([...cart, item])
+    }
+
+    const takeOffCart = item => {
+        const findItem = cart.find(prod => prod.id == item.id)
+        const borrarItem = () => cart.push(cart.splice(cart.indexOf(findItem), 1)[0])
+        return borrarItem()
     }
 
     const getQty = () => {
@@ -21,8 +27,13 @@ export default function CartProvider({ children }) {
         return total
     }
 
+    const clearCart = () => {
+        let resetCart = setCart([])
+        return resetCart               
+    }
+
     return (
-        <CartContext.Provider value={{ cart, addToCart, getQty, getTotal }}>
+        <CartContext.Provider value={{ cart, addToCart, getQty, getTotal, takeOffCart, clearCart }}>
             {children}
         </CartContext.Provider>
     )

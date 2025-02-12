@@ -1,16 +1,17 @@
 import { ListGroupItem, ListGroup, Button } from "react-bootstrap"
 import { useCart } from "../context/CartContext"
-import ItemCount from "./ItemCount"
 
 function CartList(item) {
-    const { cart } = useCart()
+    const { cart, takeOffCart, clearCart } = useCart() 
+  
     return (
-        <ListGroup >{cart.map(item =>
+        <ListGroup>{cart.map(item =>
         (<ListGroupItem key={item.id}>
             {item.name}x{item.quantity}
             ${item.price}
-            <ItemCount key={item.id}></ItemCount>
+            <Button onClick={takeOffCart}>X</Button>
         </ListGroupItem>))}
+            <Button onClick={clearCart}>Vaciar carrito</Button>
         </ListGroup>
     )
 }

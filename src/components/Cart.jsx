@@ -14,11 +14,11 @@ function Cart() {
             </Container>
         )
     } return (
-        <div>
+        <Container>
             <CartList items={cart}></CartList>
             <p>Total : ${getTotal()}</p>
             <Button as={Link} to='/checkout'>Finalizar compra</Button>
-        </div>
+        </Container>
     )
 }
 export default Cart

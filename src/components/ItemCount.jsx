@@ -5,13 +5,17 @@ export function ItemCount({ item }) {
 
     const [count, setCount] = useState(1)
     const { addToCart, cart } = useContext(CartContext)
+    const [visible, setVisible] = useState(true)
 
     const handleAddToCart = () => {
 
         const isInCart = cart.some(prod => prod.id === item.id)
         
-        if (isInCart) { addToCart({ quantity: count }) } else {
-            addToCart({ ...item, quantity: count })
+        if (isInCart) { alert(`El objeto ya esta en carrito`) } {
+            setVisible(false),
+            addToCart({ ...item, quantity: count }
+                
+            )
         }        
     }
 
@@ -20,13 +24,14 @@ export function ItemCount({ item }) {
     }
 
     const handleSubtract = () => {
-        if (count > '0')
+        if (count > '1')
             return (
                 setCount(count - 1)
             )
     }  
  
-    return (
+
+    if (visible) return (
         <div>
             <p style={{ border: 'solid 1 white' }}>{count}</p>
             <button style={{ backgroundColor: 'lightblue' }} onClick={handleSubtract}>-</button>

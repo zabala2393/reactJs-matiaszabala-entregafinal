@@ -5,14 +5,15 @@ export default function CartProvider({ children }) {
     let [cart, setCart] = useState([])
 
     const addToCart = item => {
-        const isInCart = cart.some(prod => prod.id === item.id)
-        if (!isInCart) return setCart([...cart, item])
+        const isInCart = cart.find((prod) => prod.id === item.id)
+        if (!isInCart) return (setCart([...cart, item]))        
     }
-
-    const takeOffCart = item => {
-        const findItem = cart.find(prod => prod.id == item.id)
-        const borrarItem = () => cart.push(cart.splice(cart.indexOf(findItem), 1)[0])
-        return borrarItem()
+      
+    const takeOffCart = async (item) => {
+        
+        const otherItems = cart.filter(prod=>prod.id == item.id)
+        console.log(otherItems)   
+        return   
     }
 
     const getQty = () => {
@@ -33,7 +34,7 @@ export default function CartProvider({ children }) {
     }
 
     return (
-        <CartContext.Provider value={{ cart, addToCart, getQty, getTotal, takeOffCart, clearCart }}>
+        <CartContext.Provider value={{ cart, addToCart, getQty, getTotal,takeOffCart, clearCart }}>
             {children}
         </CartContext.Provider>
     )

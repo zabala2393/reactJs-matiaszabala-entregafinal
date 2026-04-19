@@ -1,9 +1,14 @@
 
+div {
+  display: grid;
+
+}
+
 h1 {
   color: rgb(44, 19, 160);
 }
 
 header div {
   box-sizing: border-box;
-  text-align: center;
+  text-align: justify;
 }

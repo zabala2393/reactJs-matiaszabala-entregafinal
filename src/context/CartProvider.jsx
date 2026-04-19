@@ -9,10 +9,10 @@ export default function CartProvider({ children }) {
         if (!isInCart) return (setCart([...cart, item]))        
     }
       
-    const takeOffCart = async (item) => {
+    const takeOffCart = async (id) => {
         
-        const otherItems = cart.filter(prod=>prod.id == item.id)
-        console.log(otherItems)   
+        const updatedCart = cart.filter(prod=>prod.id !== id)
+        setCart(updatedCart)  
         return   
     }
 

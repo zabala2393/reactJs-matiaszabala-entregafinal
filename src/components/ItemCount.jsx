@@ -8,13 +8,11 @@ export function ItemCount({ item }) {
     const [visible, setVisible] = useState(true)
 
     const handleAddToCart = () => {
-
         const isInCart = cart.some(prod => prod.id === item.id)
         
         if (isInCart) { alert(`El objeto ya esta en carrito`) } {
             setVisible(false),
-            addToCart({ ...item, quantity: count }
-                
+            addToCart({ ...item, quantity: count }                
             )
         }        
     }
@@ -33,7 +31,7 @@ export function ItemCount({ item }) {
 
     if (visible) return (
         <div>
-            <p style={{ border: 'solid 1 white' }}>{count}</p>
+            <p className='counter'style={{ border: 'solid 1 white' }}>{count}</p>
             <button style={{ backgroundColor: 'lightblue' }} onClick={handleSubtract}>-</button>
             <button style={{ backgroundColor: 'lightgreen' }} onClick={handleAdd}>+</button>
             <button style={{ backgroundColor: 'beige' }} onClick={handleAddToCart}>Agregar al carrito</button>

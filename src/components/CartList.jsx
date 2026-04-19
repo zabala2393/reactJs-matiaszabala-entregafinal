@@ -3,14 +3,14 @@ import { useCart } from "../context/CartContext"
 
 function CartList(item) {
 
-    const { cart, clearCart, takeOffCart } = useCart() 
+    const { cart, clearCart, takeOffCart } = useCart()
 
     return (
 
         <ListGroup>{cart.map(item =>
         (<ListGroupItem key={item.id}>
             {item.name}x{item.quantity} ${item.price}
-            <Button onClick={takeOffCart}>X</Button>
+            <Button backgroundColor='red' onClick={() => takeOffCart(item.id)}>X</Button>
         </ListGroupItem>))}
             <Button onClick={clearCart}>Vaciar carrito</Button>
         </ListGroup>
